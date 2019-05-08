@@ -10,5 +10,5 @@ BOOL WINAPI DllMain(
    LPVOID    lpvReserved
 )
 {
-  /* Code to be injected within the Executable */
+  /* Main code that will be executed within the remote process */
 }`
