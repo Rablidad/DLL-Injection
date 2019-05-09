@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <tlhelp32.h>
 #include <wchar.h>
+#include <locale.h>
 
 #define NOT_FOUND 0
 #define INJECTED 1
@@ -26,14 +27,14 @@ DWORD GetProcessInfo( LPWSTR ProcessName )
 				
 				if( wcsncmp( ProcessName , PInfo.szExeFile , lstrlenW( ProcessName ) ) == 0 )
 				{
-					wprintf(TEXT("[++] Processo encontrado: %s\n") , PInfo.szExeFile );
+					_wprintf_l(TEXT("Processo Encontrado: %s\n") , setlocale(LC_ALL, "Portuguese") , PInfo.szExeFile );
 					return PInfo.th32ProcessID;
 				}
 			}
 		}
 	}
 	
-	wprintf(TEXT("[--] Processo nao encontrado: %s\n") , ProcessName );
+	_wprintf_l(TEXT("Processo Não Encontrado: %s\n") , setlocale(LC_ALL, "Portuguese") , ProcessName );
 	return NOT_FOUND;
 }
 
@@ -43,7 +44,7 @@ DWORD InjectDll( DWORD PID , WCHAR * DllPath )
 	
 	DWORD Dll_Size = ( lstrlenW( DllPath ) + 1 ) * sizeof(wchar_t);
 	HANDLE OpH = NULL;
-	wprintf(TEXT("Abrindo Processo.\n"));
+	_wprintf_l(TEXT("Abrindo Processo.\n") , setlocale(LC_ALL, "Portuguese") );
 	OpH = OpenProcess( PROCESS_ALL_ACCESS , FALSE , PID );
 	if( OpH != NULL )
 	{
@@ -67,7 +68,7 @@ DWORD InjectDll( DWORD PID , WCHAR * DllPath )
 			}
 		}
 	}
-	wprintf(TEXT("DLL Nao injetada!\n"));
+	_wprintf_l(TEXT("DLL nao injetada!\n") , setlocale(LC_ALL, "Portuguese") );
 	return NINJECTED;
 }
 
@@ -84,7 +85,7 @@ int main( int argc , char ** argv )
 	
 	if( argt < 3 )
 	{
-		wprintf(TEXT("Syntax: %s <ProcessToGetInjected> <DllToInject>\n") , argg[0] );
+		_wprintf_l(TEXT("Syntax: %s <ProcessToGetInjected> <DllToInject>\n") , setlocale(LC_ALL, "Portuguese") , argg[0] );
 		ExitProcess(1);
 	}
 	
