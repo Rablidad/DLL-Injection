@@ -101,9 +101,3 @@ int main( int argc , char ** argv )
 	
 	return 0;
 }
-
-
-//	wmemset( PBuffer , 0 , lstrlenW(PBuffer) );
-//	mbstowcs( PBuffer , PInfo.szExeFile , strlen( PInfo.szExeFile ) );
-//	wprintf(TEXT("PInfo.szExeFile --> %s\n") , PInfo.szExeFile );
-				
