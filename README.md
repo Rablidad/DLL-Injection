@@ -13,5 +13,5 @@ BOOL WINAPI DllMain(
   /* Main code that will be executed within the remote process */
 }`
 
-when the DLL PathName gets loaded into any of the Windows Processes address space, A remote thread, provided by the DLL Injector, will ensure it will memory-mapped into the current process address space by the LoadLibraryW function in order to perform the malicous/non-malicious code. this technique is very useful to prevent antiviruses detection.
+when the DLL PathName gets loaded into any of the Windows Processes addresses space, A remote thread, provided by the DLL Injector, will ensure it will memory-mapped into the current process address space by the LoadLibraryW function in order to perform the malicous/non-malicious code. this technique is very useful to prevent antiviruses detection.
 its a technique also used in legitimate(non-malicious) cases.
