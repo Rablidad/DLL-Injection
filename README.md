@@ -20,7 +20,7 @@ its a technique also used in legitimate(non-malicious) cases.
 
 
 Usage Example:
-`C:\Users\Rablidad\>InjectDll.exe chrome.exe C:\Users\Rablidad\Documents\MyFavoriteDll.dll`
+`C:\Users\Rablidad\>InjectDll.exe chrome.exe C:\Users\Rablidad\Documents\SampleDll.dll`
 
 ### Directory Contents ###
 `bin\` -> The compiled Code ( InjectDll.exe , SampleDll.dll )
